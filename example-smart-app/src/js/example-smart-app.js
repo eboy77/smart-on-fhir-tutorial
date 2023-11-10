@@ -32,9 +32,9 @@
         //    }
         //  }
         //});
-        console.log('marital status:');
+        console.log('marital status (text):');
         console.log(patient.maritalStatus.text);
-        
+
         console.log('patient:');
         console.log(patient);
 
