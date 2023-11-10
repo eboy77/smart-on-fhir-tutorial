@@ -32,11 +32,12 @@
         //    }
         //  }
         //});
-
+        console.log('marital status:');
+        console.log(patient.maritalStatus.text);
+        
         console.log('patient:');
         console.log(patient);
-        console.log('marital status:');
-        console.log(patient.maritalStatus);
+
 
         $.when(pt, obv).fail(onError);
 
