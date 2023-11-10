@@ -11,7 +11,10 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
         var pt = patient.read();
-
+         var patientResource = smart.patient.api.fetchAll({
+          type: 'Patient',
+          query: {}
+         })
          var obv = smart.patient.api.fetchAll({
            type: 'Observation',
            query: {
@@ -36,10 +39,12 @@
         console.log('patient:');
         console.log(patient)
 
-        $.when(pt, obv).fail(onError);
+        $.when(pt, obv, patientResource).fail(onError);
 
-        $.when(pt, obv).done(function(patient, obv) {
+        $.when(pt, obv, patientResource).done(function(patient, obv, patientResource) {
           var byCodes = smart.byCodes(obv, 'code');
+          var patientData = patientResource[0];
+          var maritalStatus = patientData.maritalStatus && patientData.maritalStatus.text ? patientData.maritalStatus.text : "Not Specified";
           console.log("byCodes:");
           console.log(byCodes('8480-6'));
           console.log(byCodes('8462-4'));
@@ -69,6 +74,7 @@
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
+          p.maritalStatus = maritalStatus;
 
           // Observations
           //p.lymph = getQuantityValueAndUnit(lymph[0]);
@@ -107,6 +113,7 @@
       lname: {value: ''},
       gender: {value: ''},
       birthdate: {value: ''},
+      maritalStatus: {value: ''},
       // lymph: {value: ''}
 
       // Cerner SoF Tutorial Observations
@@ -155,6 +162,7 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
+    $('#maritalStatus').html(p.maritalStatus);
     //$('#lymph').html(p.lymph);
     
     // Cerner SoF Tutorial Observations
