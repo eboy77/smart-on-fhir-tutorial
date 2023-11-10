@@ -34,8 +34,10 @@
         //});
 
         console.log('patient:');
-        console.log(patient)
-
+        console.log(patient);
+        console.log('marital status:');
+        console.log(patient.maritalStatus);
+        
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
@@ -47,10 +49,6 @@
 
           var gender = patient.gender;
           var maritalStatus = patient.maritalStatus;
-
-          console.log('marital status');
-          console.log(patient.maritalStatus);
-          console.log(maritalStatus);
 
           var fname = '';
           var lname = '';
