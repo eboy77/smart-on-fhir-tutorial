@@ -11,10 +11,6 @@
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient; 
         var pt = patient.read();
-         var patientResource = smart.patient.api.fetchAll({
-          type: 'Patient',
-          query: {}
-         });
 
          var obv = smart.patient.api.fetchAll({
            type: 'Observation',
@@ -40,19 +36,17 @@
         console.log('patient:');
         console.log(patient)
 
-        $.when(pt, obv, patientResource).fail(onError);
+        $.when(pt, obv).fail(onError);
 
-        $.when(pt, obv, patientResource).done(function(patient, obv, patientResource) {
+        $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
-          var patientData = patientResource[0];
-          var maritalStatus = patientData.maritalStatus && patientData.maritalStatus.text ? patientData.maritalStatus.text : 'Not Specified';
 
           console.log("byCodes:");
           console.log(byCodes('8480-6'));
           console.log(byCodes('8462-4'));
-          console.log(maritalStatus);
 
           var gender = patient.gender;
+          var maritalStatus = patient.maritalStatus;
 
           var fname = '';
           var lname = '';
