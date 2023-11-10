@@ -37,7 +37,7 @@
         console.log(patient);
         console.log('marital status:');
         console.log(patient.maritalStatus);
-        
+
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
@@ -48,7 +48,7 @@
           console.log(byCodes('8462-4'));
 
           var gender = patient.gender;
-          var maritalStatus = patient.maritalStatus;
+          var maritalStatus = patient.maritalStatus.text;
 
           var fname = '';
           var lname = '';
