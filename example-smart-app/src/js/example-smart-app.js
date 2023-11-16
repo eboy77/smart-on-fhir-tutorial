@@ -140,7 +140,7 @@
     $('#employment').html(employment_dropdown);
   };
 
-  var incomeTextbox = '<input type="text" id="inputIncome" value="' + (p.income!=='' ? p.income : 'type in yearly family income') + '">';
+  var incomeTextbox = '<input type="text" id="inputIncome" value="' + (p.income !== '' ? p.income : 'type in yearly family income') + '">';
   $('#income').html(incomeTextbox);
 
 })(window);
