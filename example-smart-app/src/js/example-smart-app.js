@@ -108,7 +108,7 @@
     $('#maritalStatus').html(maritalStatus_dropdown);
 
     //$('#education').html(p.education);
-    var education_dropdown = 'select id = "inputEducation">' +
+    var education_dropdown = '<select id = "inputEducation">' +
       '<option value = "">-Make a Selection-</option>' +
       '<option value = "No_schooling" '+ (p.education === 'No schooling' ? ' selected' : '') + '>No Schooling</option>' +
       '<option value = "8th_grade/less" '+ (p.education === '8th grade/less' ? ' selected' : '') + '>8th Grade or Less</option>' +
