@@ -16,13 +16,11 @@
            type: 'Observation',
            query: {
              code: {
-               $or: ['http://loinc.org|63586-2', 'http://loinc.org|82589-3',
-                     'http://loinc.org|67875-5']
+               $or: ['http://loinc.org|63586-2', 'http://loinc.org|82589-3', 'http://loinc.org|67875-5']
              }
            }
          });
 
-         
         console.log('patient:');
         console.log(patient);
 
@@ -43,7 +41,6 @@
 
           // Observations
           // lymph = byCodes('26478-8');
-          // Cerner SoF Tutorial Observations
           var income = byCodes('63586-2');
           var education = byCodes('82589-3');
           var employment = byCodes('67875-5');
@@ -63,7 +60,7 @@
       }
     }
 
-    console.log(p);
+    console.log(income);
 
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
