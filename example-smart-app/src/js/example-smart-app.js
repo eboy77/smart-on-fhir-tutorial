@@ -138,9 +138,10 @@
       '<option value = "Student" '+ (p.employment === 'Student' ? ' selected' : '') + '>Student</option>' +
       '</select>';
     $('#employment').html(employment_dropdown);
+
+    var incomeTextbox = '<input type="text" id="inputIncome" value="' + (p.income !== '' ? p.income : 'type in yearly family income') + '">';
+    $('#income').html(incomeTextbox);
   };
 
-  var incomeTextbox = '<input type="text" id="inputIncome" value="' + (p.income !== '' ? p.income : 'type in yearly family income') + '">';
-  $('#income').html(incomeTextbox);
 
 })(window);
