@@ -22,15 +22,7 @@
            }
          });
 
-        // Previous UW values for lymph
-        //var obv = smart.patient.api.fetchAll({
-        //  type: 'Observation',
-        //  query: {
-        //    code: {
-        //      $or: ['http://loinc.org|26478-8', 'http://loinc.org|2345-7']
-        //    }
-        //  }
-        //});
+         
         console.log('patient:');
         console.log(patient);
 
@@ -38,9 +30,9 @@
 
         $.when(pt, obv).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
+
           var gender = patient.gender;
           var maritalStatus = patient.maritalStatus.text;
-
           var fname = '';
           var lname = '';
 
@@ -52,9 +44,9 @@
           // Observations
           // lymph = byCodes('26478-8');
           // Cerner SoF Tutorial Observations
-           var income = byCodes('63586-2');
-           var education = byCodes('82589-3');
-           var employment = byCodes('67875-5');
+          var income = byCodes('63586-2');
+          var education = byCodes('82589-3');
+          var employment = byCodes('67875-5');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -70,6 +62,8 @@
         onError();
       }
     }
+
+    console.log(p);
 
     FHIR.oauth2.ready(onReady, onError);
     return ret.promise();
