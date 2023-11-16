@@ -44,6 +44,13 @@
           var income = byCodes('63586-2')[0];
           var education = byCodes('82589-3')[0];
           var employment = byCodes('67875-5')[0];
+          
+          console.log("income:");
+          console.log(income);
+          console.log("education:");
+          console.log(education);
+          console.log("employment:");
+          console.log(employment);
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
