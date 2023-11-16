@@ -97,17 +97,17 @@
     //$('#maritalStatus').html(p.maritalStatus);
     var maritalStatus_dropdown = '<select id = "inputMaritalStatus">' +
       '<option value = "">-Make a Selection-</option>' +
-      '<option value = "UNK">Unknown</option>' +
-      '<option value = "A">Annulled</option>' +
-      '<option value = "D">Divorced</option>' +
-      '<option value = "I">Interlocutory</option>' +
-      '<option value = "L">Legally Separated</option>' +
-      '<option value = "M">Married</option>' +
-      '<option value = "P">Polygamous</option>' +
-      '<option value = "S">Never Married</option>' +
-      '<option value = "T">Domestic Partner</option>' +
-      '<option value = "U">Unmarried</option>' +
-      '<option value = "W">Widowed</option>' +
+      '<option value = "UNK" '+ (p.maritalStatus === 'UNK' ? ' selected' : '') + '>Unknown</option>' +
+      '<option value = "A" '+ (p.maritalStatus === 'A' ? ' selected' : '') + '>Annulled</option>' +
+      '<option value = "D" '+ (p.maritalStatus === 'D' ? ' selected' : '') + '>Divorced</option>' +
+      '<option value = "I" '+ (p.maritalStatus === 'I' ? ' selected' : '') + '>Interlocutory</option>' +
+      '<option value = "L" '+ (p.maritalStatus === 'L' ? ' selected' : '') + '>Legally Separated</option>' +
+      '<option value = "M" '+ (p.maritalStatus === 'M' ? ' selected' : '') + '>Married</option>' +
+      '<option value = "P" '+ (p.maritalStatus === 'P' ? ' selected' : '') + '>Polygamous</option>' +
+      '<option value = "S" '+ (p.maritalStatus === 'S' ? ' selected' : '') + '>Never Married</option>' +
+      '<option value = "T" '+ (p.maritalStatus === 'T' ? ' selected' : '') + '>Domestic Partner</option>' +
+      '<option value = "U" '+ (p.maritalStatus === 'U' ? ' selected' : '') + '>Unmarried</option>' +
+      '<option value = "W" '+ (p.maritalStatus === 'W' ? ' selected' : '') + '>Widowed</option>' +
       '</select>';
     $('#maritalStatus').html(maritalStatus_dropdown);
     $('#education').html(p.education);
@@ -121,3 +121,16 @@
   };
 
 })(window);
+
+
+A	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Annulled	Marriage contract has been declared null and to not have existed
+D	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Divorced	Marriage contract has been declared dissolved and inactive
+I	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Interlocutory	Subject to an Interlocutory Decree.
+L	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Legally Separated	Legally Separated
+M	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Married	A current marriage contract is active
+P	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Polygamous	More than 1 current spouse
+S	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Never Married	No marriage contract has ever been entered
+T	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Domestic partner	Person declares that a domestic partner relationship exists.
+U	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	unmarried	Currently not in a marriage contract.
+W	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Widowed	The spouse has died
+UNK	http://terminology.hl7.org/CodeSystem/v3-NullFlavor
