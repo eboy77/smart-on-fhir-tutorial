@@ -41,9 +41,9 @@
 
           // Observations
           // lymph = byCodes('26478-8');
-          var income = byCodes('63586-2');
-          var education = byCodes('82589-3');
-          var employment = byCodes('67875-5');
+          var income = byCodes('63586-2')[0];
+          var education = byCodes('82589-3')[0];
+          var employment = byCodes('67875-5')[0];
 
           console.log(income.length === 0);
 
