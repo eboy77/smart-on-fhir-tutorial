@@ -31,8 +31,6 @@
 
           var gender = patient.gender;
           var maritalStatus = patient.maritalStatus.coding[0].code;
-          console.log("maritalStatus:");
-          console.log(maritalStatus);
           var fname = '';
           var lname = '';
 
@@ -108,14 +106,41 @@
       '<option value = "W" '+ (p.maritalStatus === 'W' ? ' selected' : '') + '>Widowed</option>' +
       '</select>';
     $('#maritalStatus').html(maritalStatus_dropdown);
-    $('#education').html(p.education);
+
+    //$('#education').html(p.education);
+    var education_dropdown = 'select id = "inputEducation">' +
+      '<option value = "">-Make a Selection-</option>' +
+      '<option value = "No_schooling" '+ (p.education === 'No schooling' ? ' selected' : '') + '>No Schooling</option>' +
+      '<option value = "8th_grade/less" '+ (p.education === '8th grade/less' ? ' selected' : '') + '>8th Grade or Less</option>' +
+      '<option value = "9-11_grades" '+ (p.education === '9-11 grades' ? ' selected' : '') + '>9-11 Grades</option>' +
+      '<option value = "High_school" '+ (p.education=== 'High school' ? ' selected' : '') + '>High School</option>' +
+      '<option value = "Technical_or_trade_school" '+ (p.education === 'Technical_or_trade_school' ? ' selected' : '') + '>Technical or Trade School</option>' +
+      '<option value = "Some_college" '+ (p.education === 'Some college' ? ' selected' : '') + '>Some College</option>' +
+      '<option value = "Associate_degree" '+ (p.education === 'Associate degree (e.g., AA, AS)' ? ' selected' : '') + '>Associate Degree (e.g., AA, AS)</option>' +
+      '<option value = "Bachelor_degree" '+ (p.education === 'Bachelor\'s degree (e.g., BA, AB, BS)' ? ' selected' : '') + '>Bachelor\'s Degree (e.g., BA, AB, BS)</option>' +
+      '<option value = "Master_degree" '+ (p.education === 'Master\'s degree (e.g., MA, MS, MEng, MEd, MSW, MBA)' ? ' selected' : '') + '>Master\'s Degree (e.g., MA, MS, MEng, MEd, MSW, MBA)</option>' +
+      '<option value = "Doctoral_degree" '+ (p.education === 'Doctoral degree (e.g., PhD, EdD)' ? ' selected' : '') + '>Doctoral Degree (e.g., PhD, EdD)</option>' +
+      '<option value = "Professional_degree" '+ (p.education === 'Professional degree (e.g., MD, DDS, DVM, LLB, JD)' ? ' selected' : '') + '>Professional Degree (e.g., MD, DDS, DVM, LLB, JD)</option>' +      
+      '<option value = "Unknown" '+ (p.education === 'Unknown' ? ' selected' : '') + '>Unknown</option>' + 
+      '</select>';
+    $('#education').html(education_dropdown);
+
     //$('#employment').html(p.employment);
     var employment_dropdown = '<select id = "inputEmployment">' +
       '<option value = "">-Make a Selection-</option>' +
-      '<option value = "unemployed">Unemployed</option>' +
-      '<option value = "employed_full_time">Employed Full Time</option>' +
+      '<option value = "Unemployed" '+ (p.employment === 'Unemployed' ? ' selected' : '') + '>Unemployed</option>' +
+      '<option value = "Employed_full_time" '+ (p.employment === 'Employed full time' ? ' selected' : '') + '>Employed Full Time</option>' +
+      '<option value = "Employed_part_time" '+ (p.employment === 'Employed part time' ? ' selected' : '') + '>Employed Part Time</option>' +
+      '<option value = "Homemaker" '+ (p.employment === 'Homemaker' ? ' selected' : '') + '>Homemaker</option>' +
+      '<option value = "Retired_due_to_age/preference" '+ (p.employment === 'Retired due to age/preference' ? ' selected' : '') + '>Retired due to Age/Preference</option>' +
+      '<option value = "Retired_due_to_disability" '+ (p.employment === 'Retired due to disability' ? ' selected' : '') + '>Retired due to Disability</option>' +
+      '<option value = "Medical_leave_of_absence" '+ (p.employment === 'Medical leave of absence' ? ' selected' : '') + '>Medical Leave of Absence</option>' +
+      '<option value = "Student" '+ (p.employment === 'Student' ? ' selected' : '') + '>Student</option>' +
       '</select>';
     $('#employment').html(employment_dropdown);
   };
+
+  var incomeTextbox = '<input type="text" id="inputIncome" value="' + (p.income!=='' ? p.income : 'type in yearly family income') + '">';
+  $('#income').html(incomeTextbox);
 
 })(window);
