@@ -18,7 +18,9 @@
              code: {
                $or: ['http://loinc.org|8302-2', 'http://loinc.org|8462-4',
                      'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
-                     'http://loinc.org|2089-1', 'http://loinc.org|55284-4']
+                     'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
+                     'http://loinc.org|63586-2', 'http://loinc.org|82589-3',
+                     'http://loinc.org|67875-5'];
              }
            }
          });
@@ -64,6 +66,9 @@
            var hdl = byCodes('2085-9');
            var ldl = byCodes('2089-1');
 
+           var income = byCodes('63586-2');
+           var education = byCodes('82589-3');
+           var employment = byCodes('67875-5');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -71,6 +76,9 @@
           p.fname = fname;
           p.lname = lname;
           p.maritalStatus = maritalStatus;
+          p.income = income;
+          p.education = education;
+          p.employment = employment;
 
           // Observations
           //p.lymph = getQuantityValueAndUnit(lymph[0]);
@@ -110,6 +118,10 @@
       gender: {value: ''},
       birthdate: {value: ''},
       maritalStatus: {value: ''},
+      income: {value: ''},
+      education: {value: ''},
+      employment: {value: ''},
+
       // lymph: {value: ''}
 
       // Cerner SoF Tutorial Observations
@@ -159,6 +171,9 @@
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#maritalStatus').html(p.maritalStatus);
+    $('#income').html(p.income);
+    $('#education').html(p.education);
+    $('#employment').html(p.employment);
     //$('#lymph').html(p.lymph);
     
     // Cerner SoF Tutorial Observations
