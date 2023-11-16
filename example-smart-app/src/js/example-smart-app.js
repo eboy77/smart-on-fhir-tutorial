@@ -105,15 +105,3 @@
   };
 
 })(window);
-
-A	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Annulled	Marriage contract has been declared null and to not have existed
-D	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Divorced	Marriage contract has been declared dissolved and inactive
-I	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Interlocutory	Subject to an Interlocutory Decree.
-L	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Legally Separated	Legally Separated
-M	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Married	A current marriage contract is active
-P	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Polygamous	More than 1 current spouse
-S	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Never Married	No marriage contract has ever been entered
-T	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Domestic partner	Person declares that a domestic partner relationship exists.
-U	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	unmarried	Currently not in a marriage contract.
-W	http://terminology.hl7.org/CodeSystem/v3-MaritalStatus	Widowed	The spouse has died
-UNK	http://terminology.hl7.org/CodeSystem/v3-NullFlavor	unknown	Description:A proper value is applicable, but not known. Usage Notes: This means the actual value is not known. If the only thing that is unknown is how to properly express the value in the necessary constraints (value set, datatype, etc.), then the OTH or UNC flavor should be used. No properties should be included for a datatype with this property unless: Those properties themselves directly translate to a semantic of "unknown". (E.g. a local code sent as a translation that conveys 'unknown') Those properties further qualify the nature of what is unknown. (E.g. specifying a use code of "H" and a URL prefix of "tel:" to convey that it is the home phone number that is unknown.)
