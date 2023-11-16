@@ -30,11 +30,9 @@
           var byCodes = smart.byCodes(obv, 'code');
 
           var gender = patient.gender;
-          var maritalStatus = patient.maritalStatus.coding;
-          console.log("patient.maritalStatus:");
-          console.log(patient.maritalStatus);
-          console.log("maritalStatus.coding:");
-          console.log(patient.maritalStatus.coding[0].code);
+          var maritalStatus = patient.maritalStatus.coding[0].code;
+          console.log("maritalStatus:");
+          console.log(maritalStatus);
           var fname = '';
           var lname = '';
 
