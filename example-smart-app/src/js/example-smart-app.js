@@ -34,7 +34,7 @@
           console.log("patient.maritalStatus:");
           console.log(patient.maritalStatus);
           console.log("maritalStatus.coding:");
-          console.log(patient.maritalStatus.coding);
+          console.log(patient.maritalStatus.coding[0].code);
           var fname = '';
           var lname = '';
 
@@ -109,6 +109,7 @@
       '<option value = "U">Unmarried</option>' +
       '<option value = "W">Widowed</option>' +
       '</select>';
+    $('#maritalStatus').html(maritalStatus_dropdown);
     $('#education').html(p.education);
     //$('#employment').html(p.employment);
     var employment_dropdown = '<select id = "inputEmployment">' +
