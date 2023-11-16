@@ -31,6 +31,10 @@
 
           var gender = patient.gender;
           var maritalStatus = patient.maritalStatus.code;
+          console.log("patient.maritalStatus:");
+          console.log(patient.maritalStatus);
+          console.log("maritalStatus.code:");
+          console.log(patient.maritalStatus.code);
           var fname = '';
           var lname = '';
 
@@ -90,10 +94,21 @@
     $('#lname').html(p.lname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
-    $('#maritalStatus').html(p.maritalStatus);
-    //var maritalStatus_dropdown = '<select id = "inputMaritalStatus">' +
-    //  '<option value = "">-Make a Selection-</option>' +
-    //  '<option value = "'
+    //$('#maritalStatus').html(p.maritalStatus);
+    var maritalStatus_dropdown = '<select id = "inputMaritalStatus">' +
+      '<option value = "">-Make a Selection-</option>' +
+      '<option value = "UNK">Unknown</option>' +
+      '<option value = "A">Annulled</option>' +
+      '<option value = "D">Divorced</option>' +
+      '<option value = "I">Interlocutory</option>' +
+      '<option value = "L">Legally Separated</option>' +
+      '<option value = "M">Married</option>' +
+      '<option value = "P">Polygamous</option>' +
+      '<option value = "S">Never Married</option>' +
+      '<option value = "T">Domestic Partner</option>' +
+      '<option value = "U">Unmarried</option>' +
+      '<option value = "W">Widowed</option>' +
+      '</select>';
     $('#education').html(p.education);
     //$('#employment').html(p.employment);
     var employment_dropdown = '<select id = "inputEmployment">' +
