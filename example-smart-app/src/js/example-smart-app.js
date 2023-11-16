@@ -20,7 +20,7 @@
                      'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
                      'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
                      'http://loinc.org|63586-2', 'http://loinc.org|82589-3',
-                     'http://loinc.org|67875-5'];
+                     'http://loinc.org|67875-5']
              }
            }
          });
