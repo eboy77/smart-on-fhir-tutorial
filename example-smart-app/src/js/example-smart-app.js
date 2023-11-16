@@ -54,6 +54,7 @@
           p.income = income;
           p.education = education;
           p.employment = employment;
+          ret.resolve(p);
         });
       } else {
         onError();
