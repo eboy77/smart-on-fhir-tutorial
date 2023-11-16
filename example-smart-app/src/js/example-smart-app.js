@@ -89,23 +89,14 @@
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#maritalStatus').html(p.maritalStatus);
-    if (!p.employment){
-      $('#employment').html('<input type="text" id="inputEmployment">');
-      handleMissingEmployment(p);
-    } else {
-      $('#employment').html(p.employment)
-    }
-    $('#income').html(p.income);
-
     $('#education').html(p.education);
-    $('#employment').html(p.employment);
-
-    function handleMissingEmployment(p){
-      $('#inputEmployment').change(function(){
-        p.employment = $(this).val();
-      });
-    }
-
+    //$('#employment').html(p.employment);
+    var employment_dropdown = '<select id = "inputEmployment">' +
+      '<option value = "">-Make a Selection-</option>' +
+      '<option value = "unemployed">Unemployed</option>' +
+      '<option value = "employed_full_time">Employed Full Time</option>' +
+      '</select>';
+    $('#employment').html(employment_dropdown);
   };
 
 })(window);
