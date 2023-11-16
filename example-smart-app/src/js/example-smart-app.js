@@ -76,7 +76,7 @@
       maritalStatus: {value: ''},
       income: {value: ''},
       education: {value: ''},
-      employment: {value: ''}
+      employment: {value: ''},
     };
   }
 
