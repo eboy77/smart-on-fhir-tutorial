@@ -44,13 +44,6 @@
           var income = byCodes('63586-2')[0];
           var education = byCodes('82589-3')[0];
           var employment = byCodes('67875-5')[0];
-          
-          console.log("income:");
-          console.log(income);
-          console.log("education:");
-          console.log(education);
-          console.log("employment:");
-          console.log(employment);
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -144,9 +137,19 @@
       '</select>';
     $('#employment').html(employment_dropdown);
 
-    console.log(p.income);
     var incomeTextbox = '<input type="text" id="inputIncome" value="' + (p.income !== undefined ? p.income : 'type in yearly family income') + '">';
     $('#income').html(incomeTextbox);
+
+    $('#submitBtn').on('click', function(){
+      var submittedData = {
+        maritalStatus: $('#inputMaritalStatus').val(),
+        education: $('#inputEducation').val(),
+        employment: $('#inputEmployent').val(),
+        income: $('#inputIncome').val()
+      };
+      console.log(submittedData);
+
+    });
   };
 
 
