@@ -144,7 +144,7 @@
       var submittedData = {
         maritalStatus: $('#inputMaritalStatus').val(),
         education: $('#inputEducation').val(),
-        employment: $('#inputEmployent').val(),
+        employment: $('#inputEmployment').val(),
         income: $('#inputIncome').val()
       };
       console.log(submittedData);
