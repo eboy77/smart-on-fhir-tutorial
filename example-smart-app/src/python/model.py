@@ -51,15 +51,24 @@ for file_path in file_paths:
 result_df = pd.DataFrame(data_rows, columns = ['MaritalStatus', 'Income', 'Education', 'Employment'])
 result_df_filtered = result_df.dropna()
 
-print(result_df_filtered)
-
-
 ### Now Use Clustering ###
 
 from sklearn.cluster import KMeans
 
+
+result_df_filtered.loc[result_df_filtered['Education'] == 'Less than high school degree', 'Education'] = 'L'
+result_df_filtered.loc[result_df_filtered['Education'] == 'More than high school', 'Education'] = 'M'
+result_df_filtered.loc[result_df_filtered['Education'] == 'High school diploma or GED', 'Education'] = 'H'
+result_df_filtered.loc[result_df_filtered['Education'] == 'I choose not to answer this question', 'Education'] = 'U'
+
+result_df_filtered.loc[result_df_filtered['Employment'] == 'Full-time work', 'Employment'] = 'F'
+result_df_filtered.loc[result_df_filtered['Employment'] == 'Part-time or temporary work', 'Employment'] = 'P'
+result_df_filtered.loc[result_df_filtered['Employment'] == 'Otherwise unemployed but not seeking work', 'Employment'] = 'N'
+result_df_filtered.loc[result_df_filtered['Employment'] == 'Unemployed (finding)', 'Employment'] = 'N'
+result_df_filtered.loc[result_df_filtered['Employment'] == 'I choose not to answer this question', 'Employment'] = 'U'
+
 result_df_filtered = pd.get_dummies(result_df_filtered, columns=['MaritalStatus', 'Education', 'Employment'])
-#print(result_df_filtered.columns)
+
 
 data_for_clustering = result_df_filtered
 
@@ -70,11 +79,11 @@ kmeans.fit(data_for_clustering)
 cluster_labels = kmeans.labels_
 result_df_filtered['Cluster'] = cluster_labels
 
-#print(result_df_filtered)
+print(result_df_filtered)
 #cluster_counts = result_df_filtered['Cluster'].value_counts()
 
 #print(cluster_counts)
-#result_df_filtered.to_csv('result_dataframe.csv', index=False)  # Save as CSV without row indices
+result_df_filtered.to_csv('result_dataframe.csv', index=False)  # Save as CSV without row indices
 
 
 ### Now Train Classifier ###
