@@ -10,7 +10,6 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 model = load('trained_model.joblib')
 
 def classify(data):
-    data = request.get_json()  # Get user inputs as JSON
     df = pd.DataFrame([data])
     df = pd.get_dummies(df, columns=['MaritalStatus', 'Education', 'Employment'])
 
