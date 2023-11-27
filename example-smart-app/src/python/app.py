@@ -10,9 +10,31 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 model = load('trained_model.joblib')
 
 def classify(data):
-    df = pd.DataFrame([data])
-    df = pd.get_dummies(df, columns=['MaritalStatus', 'Education', 'Employment'])
+    columns = [
+    'Income', 'MaritalStatus_M', 'MaritalStatus_S',
+    'Education_H', 'Education_L', 'Education_M', 'Education_U',
+    'Employment_F', 'Employment_N', 'Employment_P', 'Employment_U'
+    ]
 
+    # Create an empty DataFrame with defined columns
+    df = pd.DataFrame(columns=columns)
+    
+    entry = {
+        'Income': data['Income'],
+        'MaritalStatus_M': data['MaritalStatus'] == 'M',
+        'MaritalStatus_S': data['MaritalStatus'] == 'S',
+        'Education_H': data['Education'] == 'H',
+        'Education_L': data['Education'] == 'L',
+        'Education_M': data['Education'] == 'M',
+        'Education_U': data['Education'] == 'U',
+        'Employment_F': data['Employment'] == 'F',
+        'Employment_N': data['Employment'] == 'N',
+        'Employment_P': data['Employment'] == 'P',
+        'Employment_U': data['Employment'] == 'U'   
+    }
+    df = df.append(entry, ignore_index = True)
+    print(df)
+    
     result = model.predict(df)
     return result[0]
     # Return the classification result 
