@@ -1,13 +1,14 @@
 from flask import Flask, request, jsonify
 from joblib import load
 import pandas as pd
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Load the trained model
 model = load('trained_model.joblib')
 
-@app.route('/predict', methods=['POST'])
 def classify(data):
     data = request.get_json()  # Get user inputs as JSON
     df = pd.DataFrame([data])
