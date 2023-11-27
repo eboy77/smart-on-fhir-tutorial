@@ -21,10 +21,8 @@ def classify(data):
 @app.route('/classify', methods=['POST'])
 def handle_classification():
     data = request.get_json()
-    print("Received User Input:")
-    print(data)
-    print(pd.DataFrame([data]))
     result = classify(data)
+    print(result)
     return jsonify({'result': result})
 
 if __name__ == '__main__':
