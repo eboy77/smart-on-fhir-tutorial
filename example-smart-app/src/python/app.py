@@ -32,10 +32,12 @@ def classify(data):
         'Employment_P': data['Employment'] == 'P',
         'Employment_U': data['Employment'] == 'U'   
     }
-    df = df.append(entry, ignore_index = True)
-    print(df)
-    
-    result = model.predict(df)
+    entry_df = pd.DataFrame(entry, index=[0])  # Create a DataFrame from the entry with index 0
+    result_df = pd.concat([empty_df, entry_df], ignore_index=True)
+
+    print(result_df)
+
+    result = model.predict(result_df)
     return result[0]
     # Return the classification result 
     
