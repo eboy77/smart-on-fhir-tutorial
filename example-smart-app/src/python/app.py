@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from joblib import load
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -7,16 +8,21 @@ app = Flask(__name__)
 model = load('trained_model.joblib')
 
 @app.route('/predict', methods=['POST'])
-def predict():
+def classify(data):
     data = request.get_json()  # Get user inputs as JSON
+    df = pd.DataFrame([data])
+    df = pd.get_dummies(df, columns=['MaritalStatus', 'Education', 'Employment'])
 
-    # Prepare user inputs for prediction
-    user_data = [data['income'], data['education'], data['marital_status'], data['employment']]
+    result = model.predict(df)
+    return result[0]
+    # Return the classification result 
+    
 
-    # Perform prediction
-    prediction = model.predict([user_data])[0]
-
-    return jsonify({'prediction': prediction})
+@app.route('/classify', methods=['POST'])
+def handle_classification():
+    data = request.get_json()
+    result = classify(data)
+    return jsonify({'result': result})
 
 if __name__ == '__main__':
-    app.run(debug=True)  # Run the Flask app
+    app.run(debug=True)
