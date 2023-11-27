@@ -158,7 +158,7 @@
       })
       .then(response => response.json())
       .then(result => {
-        $('#result').text('Classification Result: ' + result.result);
+        $('#result').text('This patient is classified as Group #' + result.result);
       })
       .catch(error => {
           console.error('Error:', error);
