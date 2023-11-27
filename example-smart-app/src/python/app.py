@@ -23,7 +23,10 @@ def handle_classification():
     data = request.get_json()
     result = classify(data)
     print(result)
-    return jsonify({'result': result})
+
+    response = jsonify({'result': result})
+    response.headers.add('Access-Control-Allow-Origin', 'https://eboy77.github.io')
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
