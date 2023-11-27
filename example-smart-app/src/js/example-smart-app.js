@@ -141,10 +141,10 @@
 
     $('#submitBtn').on('click', function(){
       var submittedData = {
-        maritalStatus: $('#inputMaritalStatus').val(),
-        education: $('#inputEducation').val(),
-        employment: $('#inputEmployment').val(),
-        income: $('#inputIncome').val()
+        MaritalStatus: $('#inputMaritalStatus').val(),
+        Education: $('#inputEducation').val(),
+        Employment: $('#inputEmployment').val(),
+        Income: $('#inputIncome').val()
       };
       console.log(submittedData);
 
