@@ -148,6 +148,22 @@
       };
       console.log(submittedData);
 
+      // Send data to the backend
+      fetch('/classify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(submittedData)
+      })
+      .then(response => response.json())
+      .then(result => {
+        $('#result').text('Classification Result: ' + result.result);
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+
     });
   };
 
