@@ -33,7 +33,7 @@ def classify(data):
         'Employment_U': data['Employment'] == 'U'   
     }
     entry_df = pd.DataFrame(entry, index=[0])  # Create a DataFrame from the entry with index 0
-    result_df = pd.concat([empty_df, entry_df], ignore_index=True)
+    result_df = pd.concat([df, entry_df], ignore_index=True)
 
     print(result_df)
 
