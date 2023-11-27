@@ -48,7 +48,7 @@ def handle_classification():
     result = classify(data)
     print(result)
 
-    response = jsonify({'result': result})
+    response = jsonify({'result': str(result)})
     response.headers.add('Access-Control-Allow-Origin', 'https://eboy77.github.io')
     return response
 
