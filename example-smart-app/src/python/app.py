@@ -21,6 +21,8 @@ def classify(data):
 @app.route('/classify', methods=['POST'])
 def handle_classification():
     data = request.get_json()
+    print("Received User Input:")
+    print(data)
     result = classify(data)
     return jsonify({'result': result})
 
