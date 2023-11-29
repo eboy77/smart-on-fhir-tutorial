@@ -165,8 +165,8 @@
           classification = 'High group';
         } else if (result.result === '2') {
           classification = 'Low group';
-        $('#result').text('This patient is classified as ' + classification);
         }
+        $('#result').text('This patient is classified as ' + classification);
       })
 
       .catch(error => {
