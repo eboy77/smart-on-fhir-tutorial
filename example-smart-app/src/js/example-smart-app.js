@@ -159,11 +159,11 @@
       .then(response => response.json())
       .then(result => {
         let classification = '';
-        if (result.result === 0) {
+        if (result.result === '0') {
           classification = 'Medium group';
-        } else if (result.result === 1) {
+        } else if (result.result === '1') {
           classification = 'High group';
-        } else if (result.result === 2) {
+        } else if (result.result === '2') {
           classification = 'Low group';
         $('#result').text('This patient is classified as ' + classification);
         }
